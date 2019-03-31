@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'detail.dart';
 
 final imagesList = [
   "assets/one.jpg",
@@ -11,6 +12,13 @@ final colorList = [
   Colors.pink.shade200,
   Colors.blue.shade100,
   Colors.deepPurple.shade100
+];
+
+final detailsList = [
+  Detail(heading: "Image 1", des: "This is Description 1"),
+  Detail(heading: "Image 2", des: "This is Description 2"),
+  Detail(heading: "Image 3", des: "This is Description 3"),
+  Detail(heading: "Image 4", des: "This is Description 4"),
 ];
 
 class pageView extends StatefulWidget {
@@ -39,15 +47,25 @@ class _pageViewState extends State<pageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-        physics: ClampingScrollPhysics(),
-        itemBuilder: (context, index) {
-          return item(index);
-        },
-        itemCount: 4,
-        controller: _controller,
-        pageSnapping: true,
-        onPageChanged: _onPageChange,
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            height: 500.0,
+            child: PageView.builder(
+              physics: ClampingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return item(index);
+              },
+              itemCount: 4,
+              controller: _controller,
+              pageSnapping: true,
+              onPageChanged: _onPageChange,
+            ),
+          ),
+          _details(currentPage),
+        ],
       ),
     );
   }
@@ -57,72 +75,106 @@ class _pageViewState extends State<pageView> {
       animation: _controller,
       builder: (context, child) {
         double value = 1;
-        if(_controller.position.haveDimensions){
+        if (_controller.position.haveDimensions) {
           value = _controller.page - index;
-          value = (1 - value.abs()*0.5);
+          value = (1 - value.abs() * 0.5);
           return Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            height: Curves.easeIn.transform(value)*500,
-            margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-            child: Material(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, bottom: 10.0),
-                child: ClipRRect(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: Curves.easeIn.transform(value) * 500,
+              margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+              child: Material(
+                elevation: 4,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
                   ),
-                  child: Image.asset(
-                    imagesList[index],
-                    fit: BoxFit.cover,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10.0, right: 10.0, bottom: 10.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                    ),
+                    child: Image.asset(
+                      imagesList[index],
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        );
-        }else{
+          );
+        } else {
           return Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            height: Curves.easeIn.transform(index == 0 ? value:value*0.5)*500,
-            margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-            child: Material(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, bottom: 10.0),
-                child: ClipRRect(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height:
+                  Curves.easeIn.transform(index == 0 ? value : value * 0.5) *
+                      500,
+              margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+              child: Material(
+                elevation: 4,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
                   ),
-                  child: Image.asset(
-                    imagesList[index],
-                    fit: BoxFit.cover,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10.0, right: 10.0, bottom: 10.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                    ),
+                    child: Image.asset(
+                      imagesList[index],
+                      fit: BoxFit.fitHeight,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        );
+          );
         }
       },
+    );
+  }
+
+  Widget _details(index) {
+    return Expanded(
+      child: Column(
+        children: <Widget>[
+          new Text(
+            detailsList[index].heading,
+            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            detailsList[index].des,
+            style: TextStyle(fontSize: 18.0),
+          ),
+          SizedBox(
+            height: 30.0,
+          ),
+          Container(
+            width: 80.0,
+            height: 5.0,
+            color: Colors.black,
+          ),
+          Text(
+            "Read More",
+            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w900),
+          ),
+        ],
+      ),
     );
   }
 

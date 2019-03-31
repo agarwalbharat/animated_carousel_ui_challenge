@@ -4,7 +4,7 @@ A new Flutter Animated Carousel UI Challenge.
 
 ## Introduction
 
-It is an Random users details with some cool UI, Details of users are fetched from https://randomuser.me/.
+It is an Flutter project of an Animation of Carousel UI Challenge. In this lots of widgets and animation used. The code is well properly organised and easy to understand by anyone. 
 
 ### Show some :heart: and star the repo to support the project. 
 For more contact me @[facebook](https://www.facebook.com/bharatagsrwal), @[Twitter](https://twitter.com/bharatagsrwal) or @[Website](https://iambharat.tk)

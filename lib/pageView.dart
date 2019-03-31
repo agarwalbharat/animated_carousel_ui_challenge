@@ -8,7 +8,7 @@ final imagesList = [
   "assets/four.jpg"
 ];
 final colorList = [
-  Colors.red.shade200,
+  Colors.green.shade200,
   Colors.pink.shade200,
   Colors.blue.shade100,
   Colors.deepPurple.shade100
@@ -47,24 +47,32 @@ class _pageViewState extends State<pageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Stack(
         children: <Widget>[
-          Container(
-            height: 500.0,
-            child: PageView.builder(
-              physics: ClampingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return item(index);
-              },
-              itemCount: 4,
-              controller: _controller,
-              pageSnapping: true,
-              onPageChanged: _onPageChange,
-            ),
+          AnimatedContainer(
+            duration: Duration(microseconds: 500),
+            color: colorList[currentPage],
           ),
-          _details(currentPage),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                height: 500.0,
+                child: PageView.builder(
+                  physics: ClampingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return item(index);
+                  },
+                  itemCount: 4,
+                  controller: _controller,
+                  pageSnapping: true,
+                  onPageChanged: _onPageChange,
+                ),
+              ),
+              _details(currentPage),
+            ],
+          ),
         ],
       ),
     );
@@ -147,34 +155,61 @@ class _pageViewState extends State<pageView> {
   }
 
   Widget _details(index) {
-    return Expanded(
-      child: Column(
-        children: <Widget>[
-          new Text(
-            detailsList[index].heading,
-            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        double value = 1;
+        if (_controller.position.haveDimensions) {
+          value = _controller.page - index;
+          value = (1 - value.abs() * 0.5);
+        }
+
+        return Expanded(
+          child: Transform.translate(
+            offset: Offset(0, 500 - (value*500)),
+            child: Opacity(
+              opacity: value,
+              child: Container(
+                padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 15.0),
+                child: Column(
+                  children: <Widget>[
+                    new Text(
+                      detailsList[index].heading,
+                      style: TextStyle(
+                          fontSize: 24.0, fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      detailsList[index].des,
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    Container(
+                      width: 80.0,
+                      height: 5.0,
+                      color: Colors.black,
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Read More",
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            detailsList[index].des,
-            style: TextStyle(fontSize: 18.0),
-          ),
-          SizedBox(
-            height: 30.0,
-          ),
-          Container(
-            width: 80.0,
-            height: 5.0,
-            color: Colors.black,
-          ),
-          Text(
-            "Read More",
-            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w900),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 

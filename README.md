@@ -42,8 +42,6 @@ I welcome and encourage all pull requests. It usually will take me within 10-21 
 [Github](https://github.com/bharatagsrwal) ([Facebook](https://www.facebook.com/bharatagsrwal)) ([Linkedin](https://www.linkedin.com/in/bharatagsrwal)) ([Hackerrank](https://www.hackerrank.com/bharatagsrwal))
 ([Bharat Agarwal](https://iambharat.tk))([Twitter](https://www.twitter.com/bharatagsrwal))
 
-## More
-More on this app is coming soon. I am working on it, as soon as I completed it I will upload it. So Stay tuned with me to get some amazing update and apps.
 
 ### iOS implementation :innocent:
 

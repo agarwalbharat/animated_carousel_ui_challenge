@@ -52,6 +52,6 @@ This project is not implemented on ios yet. Beacuse I own Windows 10 PC Only.
 ### Android implementation :clap:
 This Project is implemented in `android` `9.0` and `8.0` in `Pixel 2` and `Redmi Note 5 (64/4GB)`.
 
-## Facing Any Problem or need any Help:trophy:
+## Facing Any Problem or need any Help:grey_question:
 Write me in [issues](https://github.com/bharatagsrwal/animated_carousel_ui_challenge/issues) section. I will try solve your issue within 10-12 hours.<br>
 </br>***Keep Fluttering and Sharing..*** :wink:

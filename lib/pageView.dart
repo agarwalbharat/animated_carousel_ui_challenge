@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 import 'detail.dart';
 
-final imagesList = [
-  "assets/one.jpg",
-  "assets/two.jpg",
-  "assets/three.jpg",
-  "assets/four.jpg"
+final details = [
+  AllDetails(
+    image: "assets/one.jpg",
+    details: Detail(heading: "Image 1", des: "This is Description 1"),
+  ),
+  AllDetails(
+    image: "assets/two.jpg",
+    details: Detail(heading: "Image 2", des: "This is Description 2"),
+  ),
+  AllDetails(
+    image: "assets/three.jpg",
+    details: Detail(heading: "Image 3", des: "This is Description 3"),
+  ),
+  AllDetails(
+    image: "assets/four.jpg",
+    details: Detail(heading: "Image 4", des: "This is Description 4"),
+  ),
 ];
 final colorList = [
   Colors.green.shade200,
   Colors.pink.shade200,
   Colors.blue.shade100,
-  Colors.deepPurple.shade100
-];
-
-final detailsList = [
-  Detail(heading: "Image 1", des: "This is Description 1"),
-  Detail(heading: "Image 2", des: "This is Description 2"),
-  Detail(heading: "Image 3", des: "This is Description 3"),
-  Detail(heading: "Image 4", des: "This is Description 4"),
+  Colors.deepPurple.shade100,
 ];
 
 class pageView extends StatefulWidget {
@@ -64,7 +69,7 @@ class _pageViewState extends State<pageView> {
                   itemBuilder: (context, index) {
                     return item(index);
                   },
-                  itemCount: 4,
+                  itemCount: details.length,
                   controller: _controller,
                   pageSnapping: true,
                   onPageChanged: _onPageChange,
@@ -107,9 +112,12 @@ class _pageViewState extends State<pageView> {
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15),
                     ),
-                    child: Image.asset(
-                      imagesList[index],
-                      fit: BoxFit.cover,
+                    child: Hero(
+                      tag: "image${currentPage}",
+                      child: Image.asset(
+                        details[index].image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -141,7 +149,7 @@ class _pageViewState extends State<pageView> {
                       bottomRight: Radius.circular(15),
                     ),
                     child: Image.asset(
-                      imagesList[index],
+                      details[index].image,
                       fit: BoxFit.fitHeight,
                     ),
                   ),
@@ -166,7 +174,7 @@ class _pageViewState extends State<pageView> {
 
         return Expanded(
           child: Transform.translate(
-            offset: Offset(0, 500 - (value*500)),
+            offset: Offset(0, 500 - (value * 500)),
             child: Opacity(
               opacity: value,
               child: Container(
@@ -174,7 +182,7 @@ class _pageViewState extends State<pageView> {
                 child: Column(
                   children: <Widget>[
                     new Text(
-                      detailsList[index].heading,
+                      details[index].details.heading,
                       style: TextStyle(
                           fontSize: 24.0, fontWeight: FontWeight.w600),
                     ),
@@ -182,7 +190,7 @@ class _pageViewState extends State<pageView> {
                       height: 20,
                     ),
                     Text(
-                      detailsList[index].des,
+                      details[index].details.des,
                       style: TextStyle(fontSize: 18.0),
                     ),
                     SizedBox(

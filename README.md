@@ -37,7 +37,7 @@ I welcome and encourage all pull requests. It usually will take me within 10-21 
 5. Create new Pull Request
 
 
-### Created By
+### Created By :sunglasses:
 
 [Github](https://github.com/bharatagsrwal) ([Facebook](https://www.facebook.com/bharatagsrwal)) ([Linkedin](https://www.linkedin.com/in/bharatagsrwal)) ([Hackerrank](https://www.hackerrank.com/bharatagsrwal))
 ([Bharat Agarwal](https://iambharat.tk))([Twitter](https://www.twitter.com/bharatagsrwal))
@@ -45,14 +45,13 @@ I welcome and encourage all pull requests. It usually will take me within 10-21 
 ## More
 More on this app is coming soon. I am working on it, as soon as I completed it I will upload it. So Stay tuned with me to get some amazing update and apps.
 
-### iOS implementation
+### iOS implementation :innocent:
 
 This project is not implemented on ios yet. Beacuse I own Windows 10 PC Only.
 
-### Android implementation
+### Android implementation :clap:
 This Project is implemented in `android` `9.0` and `8.0` in `Pixel 2` and `Redmi Note 5 (64/4GB)`.
 
-## Facing Any Problem or need any Help?
+## Facing Any Problem or need any Help:trophy:
 Write me in [issues](https://github.com/bharatagsrwal/animated_carousel_ui_challenge/issues) section. I will try solve your issue within 10-12 hours.<br>
-
-#### Keep Fluttering and Sharing.
+</br>***Keep Fluttering and Sharing..*** :wink:

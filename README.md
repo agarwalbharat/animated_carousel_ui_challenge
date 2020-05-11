@@ -7,7 +7,7 @@ A new Flutter Animated Carousel UI Challenge.
 It is an Flutter project of an Animation of Carousel UI Challenge. In this lots of widgets and animation used. The code is well properly organised and easy to understand by anyone. 
 
 ### Show some :heart: and star the repo to support the project. 
-For more contact me @[facebook](https://www.facebook.com/bharatagsrwal), @[Twitter](https://twitter.com/bharatagsrwal) or @[Website](https://iambharat.tk)
+For more contact me @[facebook](https://www.facebook.com/bharatagsrwal), @[Twitter](https://twitter.com/bharatagsrwal) or @[Website](https://iambharat.me) @[Medium](https://medium.com/@agarwalbharat68/)
 
 ### I :heart: Flutter 
 
@@ -39,8 +39,8 @@ I welcome and encourage all pull requests. It usually will take me within 10-21 
 
 ### Created By :sunglasses:
 
-[Github](https://github.com/bharatagsrwal) ([Facebook](https://www.facebook.com/bharatagsrwal)) ([Linkedin](https://www.linkedin.com/in/bharatagsrwal)) ([Hackerrank](https://www.hackerrank.com/bharatagsrwal))
-([Bharat Agarwal](https://iambharat.tk))([Twitter](https://www.twitter.com/bharatagsrwal))
+[Github](https://github.com/bharatagsrwal) ([Facebook](https://www.facebook.com/bharatagsrwal)) ([Linkedin](https://www.linkedin.com/in/bharatagsrwal)) ([Medium](https://medium.com/@agarwalbharat68/))
+([Bharat Agarwal](https://iambharat.me))([Twitter](https://www.twitter.com/bharatagsrwal))
 
 
 ### iOS implementation :innocent:
